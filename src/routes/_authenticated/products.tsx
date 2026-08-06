@@ -49,6 +49,10 @@ function ProductsContent() {
   const { data: restaurant } = useRestaurant();
   const { data: categories = [] } = useCategories(restaurant?.id);
   const { data: products = [] } = useProducts(restaurant?.id);
+  console.log("Restaurant:", restaurant);
+console.log("Restaurant ID:", restaurant?.id);
+console.log("Products:", products);
+console.log("Products Count:", products.length);
   const queryClient = useQueryClient();
 
   const [open, setOpen] = useState(false);
