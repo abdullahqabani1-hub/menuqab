@@ -3,9 +3,13 @@ import { supabase } from "@/integrations/supabase/client";
 export function mediaUrl(path: string | null | undefined): string | null {
   if (!path) return null;
   if (path.startsWith("http")) return path;
-  return `/api/public/media/${path}`;
-}
 
+  const { data } = supabase.storage
+    .from("menu-media")
+    .getPublicUrl(path);
+
+  return data.publicUrl;
+}
 export async function uploadMedia(
   restaurantId: string,
   folder: string,
