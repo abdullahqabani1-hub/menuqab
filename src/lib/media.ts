@@ -35,5 +35,5 @@ export function slugify(value: string): string {
 }
 
 export function formatPrice(price: number): string {
-  return new Intl.NumberFormat("ar", { maximumFractionDigits: 2 }).format(price);
+  return `${new Intl.NumberFormat("ar").format(price)} ل.س`;
 }
